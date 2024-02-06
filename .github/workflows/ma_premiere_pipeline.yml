@@ -21,19 +21,27 @@ concurrency:
 
 # Nos jobs !
 jobs:
-  deploiement:
-    name: Déploiement sur Github Pages
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
+    la_vache_dit:
+        name: La vache dit...
+        runs-on: ubuntu-latest
+        steps:
+          - name: Meuh
+            uses: mscoutermarsh/cowsays-action@master
+            with:
+             text: 'Mon super message'
+    deploiement:
+         name: Déploiement sur Github Pages
+         environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+            runs-on: ubuntu-latest
+            steps:
       # Se place dans le repo
-      - name: Changement de repo
-        uses: actions/checkout@v4
-      # Configure GitHub Pages
-      - name: Configuration
-        uses: actions/configure-pages@v4
+            - name: Changement de repo
+            uses: actions/checkout@v4
+            # Configure GitHub Pages
+            - name: Configuration
+            uses: actions/configure-pages@v4
       # Permet de faire en sorte que votre site puisse être envoyé sur GitHub Pages
       - name: Téléversement des artefacts
         uses: actions/upload-pages-artifact@v3
@@ -43,11 +51,3 @@ jobs:
       - name: Déploiement vers GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-    la_vache_dit:
-        name: La vache dit...
-        runs-on: ubuntu-latest
-        steps:
-        name: Meuh
-        uses: mscoutermarsh/cowsays-action@master
-        with:
-        text: 'Mon super message'
