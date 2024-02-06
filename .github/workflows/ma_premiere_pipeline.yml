@@ -1,47 +1,47 @@
 # Nom de la pipeline
-    name: Déploiement sur Github Pages
+name: Déploiement sur Github Pages
 
 # Quand s'exécute la pipeline
-    on:
-    push: # Quand on pousse
+on:
+  push: # Quand on pousse
     branches: ["main"] #...sur la branche main
 
-    workflow_dispatch:
+  workflow_dispatch:
 
 # Des histoires de permissions
-    permissions:
-    contents: read
-    pages: write
-    id-token: write
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 # Des histoires de parallélisme de jobs
-    concurrency:
-    group: "pages"
-    cancel-in-progress: false
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 # Nos jobs !
-    jobs:
-    la_vache_dit:
+jobs:
+  la_vache_dit:
         name: La vache dit...
         runs-on: ubuntu-latest
         steps:
           - name: Meuh
             uses: mscoutermarsh/cowsays-action@master
             with:
-             text: 'Mon super message'
-    deploiement:
-         name: Déploiement sur Github Pages
+              text: 'Mon super message'
+  deploiement:
+    name: Déploiement sur Github Pages
     environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-            runs-on: ubuntu-latest
-            steps:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       # Se place dans le repo
-            - name: Changement de repo
-            uses: actions/checkout@v4
-            # Configure GitHub Pages
+      - name: Changement de repo
+        uses: actions/checkout@v4
+      # Configure GitHub Pages
       - name: Configuration
-            uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v4
       # Permet de faire en sorte que votre site puisse être envoyé sur GitHub Pages
       - name: Téléversement des artefacts
         uses: actions/upload-pages-artifact@v3
