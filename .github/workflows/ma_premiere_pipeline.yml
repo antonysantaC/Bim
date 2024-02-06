@@ -28,7 +28,7 @@ jobs:
           - name: Meuh
             uses: mscoutermarsh/cowsays-action@master
             with:
-              text: 'Mon super message'
+              text: 'Abonnez vous à Batman:@Santiago_naranjograjales'
   deploiement:
     name: Déploiement sur Github Pages
     environment:
