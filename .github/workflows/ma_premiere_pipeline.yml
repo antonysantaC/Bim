@@ -2,11 +2,11 @@
     name: Déploiement sur Github Pages
 
 # Quand s'exécute la pipeline
-on:
+    on:
     push: # Quand on pousse
     branches: ["main"] #...sur la branche main
 
-  workflow_dispatch:
+    workflow_dispatch:
 
 # Des histoires de permissions
     permissions:
