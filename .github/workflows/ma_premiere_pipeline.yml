@@ -40,7 +40,7 @@ jobs:
             - name: Changement de repo
             uses: actions/checkout@v4
             # Configure GitHub Pages
-             - name: Configuration
+      - name: Configuration
             uses: actions/configure-pages@v4
       # Permet de faire en sorte que votre site puisse être envoyé sur GitHub Pages
       - name: Téléversement des artefacts
