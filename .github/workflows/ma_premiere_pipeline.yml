@@ -20,7 +20,7 @@ concurrency:
   cancel-in-progress: false
 
 # Nos jobs !
-  jobs:
+    jobs:
     la_vache_dit:
         name: La vache dit...
         runs-on: ubuntu-latest
